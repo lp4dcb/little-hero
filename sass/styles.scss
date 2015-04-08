@@ -1,0 +1,262 @@
+@import "compass/reset";
+@import "compass/css3";
+    
+
+
+// VARIABLES
+
+$black: #000;
+$white: #FFF;
+$grey: #fdfdfd;
+$darkgrey: #acacac;
+$dark-bg: #111111;
+
+
+$padding: 10px;
+$margin: 10px;
+$main-width: 1000px;
+
+$font-size: 16px;
+$font-family: "Ek Mukta", sans-serif;
+$line-height: 1.4;
+$letter-spacing: 2.5px;
+
+@import url(http://fonts.googleapis.com/css?family=Ek+Mukta:100,400);
+
+$break-four: 1050px;
+$break-three: 760px;
+$break-two: 520px;
+$break-one: 320px;
+
+
+.group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+// MAIN STYLES
+* {
+    position: relative;
+    @include box-sizing(border-box);
+    text-decoration: none;
+}
+
+a {
+    color:inherit;
+    
+    &:hover {
+        color: $dark-bg;
+    }
+}
+
+html,
+body,
+.wrap {
+    min-height: 100%;
+}
+
+body {
+    color: $grey;
+    font-family: $font-family;
+    line-height: $line-height;
+    background: $dark-bg;
+}
+
+.sidebar {
+    width: 100%;
+    height: 100%;
+    
+    @media screen and (min-width: $break-three) {
+        position: fixed;
+        width: 20%;
+        z-index: 1;
+    }
+    
+    .avatar-info {
+        font-size: $font-size*1.5;
+        line-height: $line-height*1.5;
+        letter-spacing: $letter-spacing;
+        text-align: center;
+        padding: $padding*3 0;
+        border-bottom: 1px solid $darkgrey;
+    
+    
+        .avatar {
+            @include border-radius(50%);
+            margin-bottom: $margin*3;
+        }
+
+        h1, h2 {
+            font-weight: 400;
+        }
+
+        h1 {
+            font-size: 100%;
+        }
+
+        h2 {
+            font-size: 90%;
+        }
+    }
+}
+
+.nav {
+    text-align: center;
+    
+@media screen and (min-width: $break-three) {
+        padding: $padding*2 $padding*3;
+    }
+    
+    .nav-title {
+        cursor: pointer;
+        font-size: 100%;
+        font-weight: 400;
+        text-transform: uppercase;
+        width: 50%;
+        margin: 0 auto;
+        
+        @media screen and (min-width: $break-one) {
+        margin: $margin*2 auto $margin*2;    
+            
+            &:hover {
+                color: yellow;
+            }
+        }
+        
+        @media screen and (min-width: $break-three) {
+        margin: $margin*2 0 $margin 0;  
+        width: 100%;
+       
+        }
+    }
+}
+
+.sub-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0 $margin*13.5 $margin;
+    text-align: center;
+    
+    @media screen and (min-width: $break-three) {
+        margin: 0 auto;
+        width: auto;
+    }
+    
+    &.open {
+        display: inline-block;
+        
+        @media screen and (min-width: $break-three) {
+            margin: 0 0 0 $margin*2.5;
+            display: block;
+            width: auto;
+        }
+    }
+    
+    li {
+        a{
+            color: $darkgrey;
+            text-decoration: none;
+            @include transition(0.4s ease);
+            
+            &:hover {
+                color: yellow;
+                @include transition(0.4s ease);
+                @include transform(1.25);
+            }
+        }
+    }
+}
+
+.content {
+    width: 100%;
+    min-height: 100%;
+    background: $white;
+    text-align: center;
+    
+    @media screen and (min-width:$break-three) {
+        float: right;
+        width: 80%;
+    }
+    
+    .scene-item {
+        background: darken($grey, .2%);
+        
+        &:before {
+            content: "";
+            position: absolute;
+            width: 2px;
+            background: darken($grey, 5%);
+            top: 0;
+            left: 17px;
+            bottom: 0;
+        }
+    }
+    
+        .scene-title {
+            min-height: 100%;
+            color: $darkgrey;
+            padding: $padding*2 $padding*4;
+            z-index: 1;
+            @include box-sizing(border-box);
+
+            @media screen and (min-width:$break-three) {
+                margin-top: $margin*2;
+                float: left;
+                width: 30%;
+            }
+
+            .year {
+                font-size: 150%;
+                color: $black;
+                margin-bottom: $margin;
+            }
+
+            .summary {
+                font-weight: 100;
+            }
+            .tagged {
+                font-size: 90%;
+                color: darken($grey, 20%);
+                margin: $margin;
+
+                p {
+                    margin: 0;
+                }
+            }
+        }
+
+        .scene-image {
+            padding: $padding*2;
+            background: $white;
+            text-align: center;
+
+            @media screen and (min-width: $break-three) {
+                float: right;
+                width: 70%;
+            }
+
+            img {
+                width: 100%;
+                max-width: 520px;
+                height: auto;
+            }
+        }
+    .loading {
+            color: $black;
+            font-size: 110%;
+            font-weight: lighter;
+            
+            p{
+                background-color: yellow;
+                padding: $padding*2;
+            }
+        }
+        
+}
+
+
+
+
